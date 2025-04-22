@@ -1,0 +1,18 @@
+<div class="container mt-5">
+    <div class="card shadow-sm p-4 rounded-4">
+        <form [formGroup]="cityForm" (ngSubmit)="getCityCount()">
+            <label for="letter">Enter a Letter:</label>
+            <input type="text" id="letter" formControlName="letter" class="form-control" maxlength="1" (input)="onInput()" [ngClass]="{'is-invalid': isFormSubmitted && userFormControls['letter'].errors}"/>
+            <div *ngIf="isFormSubmitted && userFormControls['letter'].errors" class="invalid-feedback">
+                <div *ngIf="userFormControls['letter'].errors['required']">Please enter letter</div>
+                <div *ngIf="userFormControls['letter'].errors?.['pattern']">Please enter valid letter (A-Z)</div>
+
+            </div>  
+            <button type="submit" class="btn btn-primary" [disabled]="isFormSubmitted && cityForm.status == 'INVALID'">Search</button>
+        </form>
+        
+        <div *ngIf="count !== null && showResult && cityForm.status == 'VALID'">
+            <p>Number of cities starting with '{{ cityForm.value.letter }}': {{ count }}</p>
+        </div>
+    </div>
+  </div>
