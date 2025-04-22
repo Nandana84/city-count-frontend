@@ -17,10 +17,13 @@ This is the frontend of the **City Count Application**, built with **Angular**. 
 
 ## 📦 Setup
 
+Prerequisite: Run the backend citycountApp(https://github.com/Nandana84/citycountApp) before running frontend
+
 1. **Install dependencies**
    npm install
 
 2. Run the app
+
 ng serve
 
 3. visit in browser
